@@ -52,7 +52,18 @@ client(p1[1],p2[0]);
 wait(waits); 
 return 0; 
 } 
-
+void client(int wfd,int rfd) {
+int i,j,n; char fname[2000];
+char buff[2000];
+printf("ENTER THE FILE NAME :");
+scanf("%s",fname);
+printf("CLIENT SENDING THE REQUEST .... PLEASE WAIT\n");
+sleep(10);
+write(wfd,fname,2000);
+n=read(rfd,buff,2000);
+buff[n]='\0';
+printf("THE RESULTS OF CLIENTS ARE ...... \n"); write(1,buff,n);
+}
 void server(int rfd,int wfd) 
 { 
 int i,j,n; 
@@ -68,27 +79,10 @@ else
 n=read(fd,buff,2000); 
 write(wfd,buff,n); 
 }
-void client(int wfd,int rfd) {
-int i,j,n; char fname[2000];
-char buff[2000];
-printf("ENTER THE FILE NAME :");
-scanf("%s",fname);
-printf("CLIENT SENDING THE REQUEST .... PLEASE WAIT\n");
-sleep(10);
-write(wfd,fname,2000);
-n=read(rfd,buff,2000);
-buff[n]='\0';
-printf("THE RESULTS OF CLIENTS ARE ...... \n"); write(1,buff,n);
-}
 ~~~
 
-
-
-
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/95f2fb24-40e9-45d3-8b48-b137c8b44a42)
-![image](https://github.com/user-attachments/assets/a93f791d-2479-4b91-af7c-811a68c8606f)
-
+![image](https://github.com/user-attachments/assets/9ca5bd58-9b8e-449e-971f-e46a3bb68ca1)
 
 ## C Program that illustrate communication between two process using named pipes using Linux API system calls
 ~~~
@@ -106,8 +100,8 @@ exit(EXIT_SUCCESS);
 
 
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/f1bc20be-161a-469d-b563-4c3bdb9b1694)
-![image](https://github.com/user-attachments/assets/11fc1044-9fe0-4851-ab6f-238850a7f799)
+![image](https://github.com/user-attachments/assets/baa0c280-9855-4706-a073-453751ee3a25)
+
 
 
 # RESULT:
